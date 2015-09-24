@@ -10,8 +10,8 @@
     </head>
     <body>
 	    <div ng-app="FlashCards" ng-controller="MainController as main">
-				<div class="flash-card" ng-controller="FlashCardController as flash" ng-repeat="flashcard in main.flashCards"> 
-			    <h1>{{flashcard.question}}</h1>
+				<div class="flash-card" ng-controller="FlashCardController as flash" ng-repeat="flashcard in main.flashCards | orderBy:'question'"> 
+			    <h1>{{flashcard.question | uppercase}}</h1>
 			    <ul class="flash-card-answers">
 			    	<li class="flash-card-answer" ng-repeat="answer in flashcard.answers" ng-click="flash.answerQuestion(answer.correct)">
 						{{answer.text}}
