@@ -17,7 +17,7 @@
 						{{answer.text}}
 			    	</li>
 			    </ul>
-			    <h2 class="answer-feedback" ng-show="flash.answered">
+			    <h2 class="answer-feedback" ng-show="flash.answered" ng-class="{correct: flash.answeredCorrectly, incorrect: !flash.answeredCorrectly}">
 				    <span ng-show="flash.answeredCorrectly">Yeah, you got it right!</span>
 				    <span ng-show="!flash.answeredCorrectly">Nope, you got it wrong.</span>
 					</h2>
