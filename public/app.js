@@ -1,15 +1,16 @@
 var app = angular.module('FlashCards', []);
 
-app.controller('FlashCardController', function() {
+app.controller('FlashCardController', function($scope) {
 
-	this.answerQuestion = function (theAnswer) {
-	    this.answered = true;
-	    this.answeredCorrectly = theAnswer;
+	$scope.answerQuestion = function (theAnswer) {
+	    console.log($scope);
+	    $scope.answered = true;
+	    $scope.answeredCorrectly = theAnswer;
 	};
 });
 
-app.controller('MainController', function() {
-	this.flashCards = [
+app.controller('MainController', function($scope) {
+	$scope.flashCards = [
     {
         question: 'What is Angular?',
         answers: [

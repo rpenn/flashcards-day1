@@ -9,17 +9,17 @@
         <script src="app.js"></script>
     </head>
     <body>
-	    <div ng-app="FlashCards" ng-controller="MainController as main">
-				<div class="flash-card" ng-controller="FlashCardController as flash" ng-repeat="flashcard in main.flashCards | orderBy:'question'"> 
+	    <div ng-app="FlashCards" ng-controller="MainController">
+				<div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashcard in flashCards | orderBy:'question'"> 
 			    <h1>{{flashcard.question | uppercase}}</h1>
 			    <ul class="flash-card-answers">
-			    	<li class="flash-card-answer" ng-repeat="answer in flashcard.answers" ng-click="flash.answerQuestion(answer.correct)">
+			    	<li class="flash-card-answer" ng-repeat="answer in flashcard.answers" ng-click="answerQuestion(answer.correct)">
 						{{answer.text}}
 			    	</li>
 			    </ul>
-			    <h2 class="answer-feedback" ng-show="flash.answered" ng-class="{correct: flash.answeredCorrectly, incorrect: !flash.answeredCorrectly}">
-				    <span ng-show="flash.answeredCorrectly">Yeah, you got it right!</span>
-				    <span ng-show="!flash.answeredCorrectly">Nope, you got it wrong.</span>
+			    <h2 class="answer-feedback" ng-show="answered" ng-class="{correct: answeredCorrectly, incorrect: !answeredCorrectly}">
+				    <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
+				    <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
 					</h2>
 				</div>
 	    </div>
