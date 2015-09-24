@@ -1,22 +1,15 @@
 var app = angular.module('FlashCards', []);
 
-app.controller('FlashCardController', function($scope) {
-	// removed the original flashcard, since this FlashCardController
-	// will only be used to define methods, not as data/object storage.
+app.controller('FlashCardController', function() {
 
-	$scope.answerQuestion = function (theAnswer) {
-		// changed this to pass 'answer.correct' (from line 23, index.html) as a parameter into our
-		// answerQuestion function.
-	    $scope.answered = true;
-	    $scope.answeredCorrectly = theAnswer; //this may seem somewhat counter-intuitive that we read 
-	    // the variable from index.html to be used as a parameter in public/app.js instead of just within
-	    // public/app.js, but I think it's the point of the modularity of controllers, that we can define
-	    // various controllers and because they're modular, we can simply pull variables from our html file.
+	this.answerQuestion = function (theAnswer) {
+	    this.answered = true;
+	    this.answeredCorrectly = theAnswer;
 	};
 });
 
-app.controller('MainController', function($scope) {
-	$scope.flashCards = [
+app.controller('MainController', function() {
+	this.flashCards = [
     {
         question: 'What is Angular?',
         answers: [
