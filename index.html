@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!-- notes:
+	fixed formatting - our ng-repeat was originally on the <ul> tag. I moved it to the <li> tag.
+
+	I believe we originally nested FlashCardController <div> as a node in the	MainController <div>, but I don't think we nested the ng-repeat function correctly. We'll essentially nest one ng-repeat inside the other, i.e. the keys we're looping through in the first will be the object we are looping over in the second. See comments below:
+-->
+
+
 <html>
     <head>
         <title>Flash Cards</title>
@@ -10,11 +17,10 @@
     </head>
     <body>
 	    <div ng-app="FlashCards" ng-controller="MainController">
-				<div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashcard in flashCards">
+				<div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashcard in flashCards"> <!-- this 'flashcard' key will be used as the object in the next ng-repeat, line 26--> 
 				    <h1>{{flashcard.question}}</h1>
 				    <ul class="flash-card-answers">
 				    	<li class="flash-card-answer" ng-repeat="answer in flashcard.answers" ng-click="answerQuestion(answer.correct)">
-							<!-- our ng-repeat was originally on the <ul>. I moved it to the <li>, and that solved our formatting issue. -->
 							{{answer.text}}
 				    	</li>
 				    </ul>
